@@ -2,16 +2,22 @@
 var cart = [];
 
 var updateCart = function () {
+  $(".cart-list").empty();
+
+  for (var i = 0; i < cart.length; i++) {
+      console.log("looping");
+      $(".cart-list").append("<p>" + cart[i].name + "(" + itemCounter + ")" + cart[i].price + "$</p>");
+  };
+
   // TODO: Write this function. In this function we render the page.
   // Meaning we make sure that all our cart items are displayed in the browser.
   // Remember to empty the "cart div" before you re-add all the item elements.
 }
 
-
 var cart = []; //storage array
 
 var addItem = function (item) {
-    cart.push({item});
+    cart.push(item);
     console.log(cart);
 }
 
@@ -25,23 +31,10 @@ var clearCart = function () {
 }
 
 // TODO: hide/show the shopping cart!
-var cartView = "show"; //true flag
 
 $('.view-cart').on('click', function () {
-
-  if (cartView === "show") { //true
-
-        $(".shopping-cart").css("display","block");
-        cartView = "hide"; //change var
-        console.log("showen");
-
-  } else {
-
-        $(".shopping-cart").css("display","none");
-        cartView = "show"; //change var again
-        console.log("hiden now");
-      }
-  });
+  $(".shopping-cart").toggle(".show");
+});
 
 $('.add-to-cart').on('click', function () {
   // TODO: get the "item" object from the page
@@ -54,7 +47,7 @@ $('.add-to-cart').on('click', function () {
 });
 
 $('.clear-cart').on('click', function () {
-
+  console.log("clearing");
   clearCart();
 });
 

@@ -97,7 +97,7 @@ body {
 }
 
 .show {
-  display: none;
+  display: inline-block;
 }
 
 .clear-cart {
