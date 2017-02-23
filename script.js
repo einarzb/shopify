@@ -2,8 +2,6 @@
 var cart = [];
 var total = 0;
 
-$(".bin").
-
 var updateCart = function () {
   $(".cart-list").empty();
   total = 0;
