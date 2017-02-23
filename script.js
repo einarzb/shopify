@@ -15,10 +15,13 @@ var addItem = function (item) {
     console.log(cart);
 }
 
+// TODO: Write a function that clears the cart ;-)
 var clearCart = function () {
-  // TODO: Write a function that clears the cart ;-)
   $(".cart-list").empty();
     console.log("empty!");
+
+ //splicing the array
+  cart.splice(0, cart.length); //the array length equals as the number of items to be removed
 }
 
 // TODO: hide/show the shopping cart!
