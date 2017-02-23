@@ -8,10 +8,11 @@ var updateCart = function () {
 }
 
 
-var addItem = function (item) {
+var cart = []; //storage array
 
-  // TODO: Write this function. Remember this function has nothing to do with display. 
-  // It simply is for adding an item to the cart array, no HTML involved - honest ;-)
+var addItem = function (item) {
+    cart.push({item});
+    console.log(cart);
 }
 
 var clearCart = function () {
