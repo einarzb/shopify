@@ -73,6 +73,15 @@ $('.clear-cart').on('click', function () {
 $("body").on('click', ".removeQuantity", function () {
   var itemIndex = $(this).parent().index(); //storing the index of an element
   cart[itemIndex].counter -= 1;
+
+  //if reaches 0 than remove item name and price from cart! 
+
+  if (cart[itemIndex].counter === 0) {
+       console.log("no more products");
+       cart.splice(itemIndex, 1);
+       $(".total").empty();
+       total = 0;
+  };
   updateCart();
 });
 
