@@ -5,14 +5,18 @@ var total = 0;
 var updateCart = function () {
   $(".cart-list").empty();
   total = 0;
+  $(".navCounter").empty();
 
   // var itemCounter = {}; //declaring map object
 
   for (var i = 0; i < cart.length; i++) {
-    $(".cart-list").append("<p>" + cart[i].name + " " +  "(" + cart[i].counter + ")" + " - " + cart[i].price + "$" + "class=bin" + "</p>");  
+    $(".cart-list").append("<p>" + cart[i].name + " " +  "(" + cart[i].counter + ")" + " - " + (cart[i].counter * cart[i].price) + "$"  + " - <a class='removeQuantity' href='#'>x</a></p>");  
     total += cart[i].price * cart[i].counter;
     $(".total").text(total);
+    $(".navCounter").css("display","inline-block");
+    $(".navCounter").append(cart[i].counter); 
   }; //end of for in loop 
+
 };//end of function
 
 var cart = []; //storage array
@@ -52,6 +56,7 @@ $('.view-cart').on('click', function () {
 });
 
 $('.add-to-cart').on('click', function () {
+  $(".shopping-cart").css("display","block"); //user add-on
   // TODO: get the "item" object from the page
   var name = $(this).parent().parent().parent().find(".item").data().name;
   var price = $(this).parent().parent().parent().find(".item").data().price;
@@ -65,6 +70,24 @@ $('.add-to-cart').on('click', function () {
 $('.clear-cart').on('click', function () {
   console.log("clearing");
   clearCart();
+});
+
+//removing item from cart function
+$("body").on('click', ".removeQuantity", function () {
+  var itemIndex = $(this).parent().index(); //storing the index of an element
+  cart[itemIndex].counter -= 1;
+
+  //if reaches 0 than remove item name and price from cart! 
+
+  if (cart[itemIndex].counter === 0) {
+       console.log("no more products");
+       cart.splice(itemIndex, 1);
+       $(".total").empty();
+       total = 0;
+      $(".navCounter").css("display","none");
+
+  };
+  updateCart();
 });
 
 // update the cart as soon as the page loads!

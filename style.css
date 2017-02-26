@@ -2,6 +2,35 @@ body {
   background-color: #EAEBE7;
 }
 
+.navCounter {
+    position: absolute;
+    z-index: 9999;
+    color: #222;
+    width: 16px;
+    display: none;
+    float: right;
+    text-align: center;
+    background: #ff0;
+    border-radius: 30%;
+    -moz-border-radius: 30%;
+    -webkit-border-radius: 30%;
+    height: 15px;
+    line-height: 18px;
+    right: 6px;
+    top: 5px;
+    font-size: 12px;
+    font-family: arial;
+}
+
+.removeQuantity {
+  font-size: 14px;
+  color:grey;
+}
+
+.removeQuantity:hover {
+  text-decoration: none;
+}
+
 .card-container{
   height: 420px;
   position: relative;
@@ -82,8 +111,8 @@ body {
 
 .shopping-cart {
   position: fixed;
-  top: 55px;
-  right: 40px;
+  top: 60px;
+  right: 10px;
   display: none;
   background-color: #fff;
   box-shadow: 2px 2px 2px #B3B3B3;
