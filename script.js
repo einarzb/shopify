@@ -5,6 +5,7 @@ var total = 0;
 var updateCart = function () {
   $(".cart-list").empty();
   total = 0;
+  $(".navCounter").empty();
 
   // var itemCounter = {}; //declaring map object
 
@@ -12,6 +13,8 @@ var updateCart = function () {
     $(".cart-list").append("<p>" + cart[i].name + " " +  "(" + cart[i].counter + ")" + " - " + (cart[i].counter * cart[i].price) + "$"  + " - <a class='removeQuantity' href='#'>x</a></p>");  
     total += cart[i].price * cart[i].counter;
     $(".total").text(total);
+    $(".navCounter").css("display","inline-block");
+    $(".navCounter").append(cart[i].counter); 
   }; //end of for in loop 
 
 };//end of function
@@ -81,6 +84,8 @@ $("body").on('click', ".removeQuantity", function () {
        cart.splice(itemIndex, 1);
        $(".total").empty();
        total = 0;
+      $(".navCounter").css("display","none");
+
   };
   updateCart();
 });
