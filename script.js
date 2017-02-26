@@ -9,7 +9,7 @@ var updateCart = function () {
   // var itemCounter = {}; //declaring map object
 
   for (var i = 0; i < cart.length; i++) {
-    $(".cart-list").append("<p>" + cart[i].name + " " +  "(" + cart[i].counter + ")" + " - " + (cart[i].counter * cart[i].price) + "$"  + " - <a class='removeQuantity' href='#'>x</a></p>");  
+    $(".cart-list").append("<p>" + cart[i].name + " " +  "(" + cart[i].counter + ")" + " - " + ( * cart[i].price) + "$"  + " - <a class='removeQuantity' href='#'>x</a></p>");  
     total += cart[i].price * cart[i].counter;
     $(".total").text(total);
   }; //end of for in loop 
