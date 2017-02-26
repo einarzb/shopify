@@ -72,9 +72,8 @@ $('.clear-cart').on('click', function () {
 //removing item from cart function
 $("body").on('click', ".removeQuantity", function () {
   var itemIndex = $(this).parent().index(); //storing the index of an element
-  //cart[index].counter -= cart[index].counter;
-  var removedItem = $(this).parent().counter;
-  console.log(removedItem);//object
+  cart[itemIndex].counter -= 1;
+  updateCart();
 });
 
 // update the cart as soon as the page loads!
